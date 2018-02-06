@@ -1,0 +1,8 @@
+C:\Users\Owner\documents\visual studio 2010\Projects\FI-NTF_WKR\FI-NTF_WKR\bin\Debug\FI-NTF_WKR.exe
+C:\Users\Owner\documents\visual studio 2010\Projects\FI-NTF_WKR\FI-NTF_WKR\bin\Debug\FI-NTF_WKR.pdb
+C:\Users\Owner\documents\visual studio 2010\Projects\FI-NTF_WKR\FI-NTF_WKR\obj\x86\Debug\FI-NTF_WKR.csprojResolveAssemblyReference.cache
+C:\Users\Owner\documents\visual studio 2010\Projects\FI-NTF_WKR\FI-NTF_WKR\obj\x86\Debug\FI_NTF_WKR.Window.resources
+C:\Users\Owner\documents\visual studio 2010\Projects\FI-NTF_WKR\FI-NTF_WKR\obj\x86\Debug\FI_NTF_WKR.Properties.Resources.resources
+C:\Users\Owner\documents\visual studio 2010\Projects\FI-NTF_WKR\FI-NTF_WKR\obj\x86\Debug\FI-NTF_WKR.csproj.GenerateResource.Cache
+C:\Users\Owner\documents\visual studio 2010\Projects\FI-NTF_WKR\FI-NTF_WKR\obj\x86\Debug\FI-NTF_WKR.exe
+C:\Users\Owner\documents\visual studio 2010\Projects\FI-NTF_WKR\FI-NTF_WKR\obj\x86\Debug\FI-NTF_WKR.pdb
