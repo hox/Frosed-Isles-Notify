@@ -1,2 +1,2 @@
-git commit -a --allow-empty-message --no-verify
+git commit -a --allow-empty-message
 git push
