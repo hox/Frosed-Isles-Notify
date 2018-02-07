@@ -19,3 +19,12 @@ C:\Users\Owner\Documents\Visual Studio 2010\Projects\Frosed-Isles-Notify\Frosted
 C:\Users\Owner\Documents\Visual Studio 2010\Projects\Frosed-Isles-Notify\Frosted-Isles-Notify\obj\x86\Debug\FI_NTF_WKR.Window.resources
 C:\Users\Owner\Documents\Visual Studio 2010\Projects\Frosed-Isles-Notify\Frosted-Isles-Notify\obj\x86\Debug\FI_NTF_WKR.Properties.Resources.resources
 C:\Users\Owner\Documents\Visual Studio 2010\Projects\Frosed-Isles-Notify\Frosted-Isles-Notify\obj\x86\Debug\Frosted-Isles-Notify.csproj.GenerateResource.Cache
+C:\Users\jacon\Source\Repos\Frosed-Isles-Notify\Frosted-Isles-Notify\bin\Debug\FI-NTF_WKR.exe
+C:\Users\jacon\Source\Repos\Frosed-Isles-Notify\Frosted-Isles-Notify\bin\Debug\FI-NTF_WKR.pdb
+C:\Users\jacon\Source\Repos\Frosed-Isles-Notify\Frosted-Isles-Notify\obj\x86\Debug\Frosted-Isles-Notify.csprojResolveAssemblyReference.cache
+C:\Users\jacon\Source\Repos\Frosed-Isles-Notify\Frosted-Isles-Notify\obj\x86\Debug\FI_NTF_WKR.Window.resources
+C:\Users\jacon\Source\Repos\Frosed-Isles-Notify\Frosted-Isles-Notify\obj\x86\Debug\FI_NTF_WKR.Properties.Resources.resources
+C:\Users\jacon\Source\Repos\Frosed-Isles-Notify\Frosted-Isles-Notify\obj\x86\Debug\Frosted-Isles-Notify.csproj.GenerateResource.Cache
+C:\Users\jacon\Source\Repos\Frosed-Isles-Notify\Frosted-Isles-Notify\obj\x86\Debug\Frosted-Isles-Notify.csproj.CoreCompileInputs.cache
+C:\Users\jacon\Source\Repos\Frosed-Isles-Notify\Frosted-Isles-Notify\obj\x86\Debug\FI-NTF_WKR.exe
+C:\Users\jacon\Source\Repos\Frosed-Isles-Notify\Frosted-Isles-Notify\obj\x86\Debug\FI-NTF_WKR.pdb
