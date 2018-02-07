@@ -20,7 +20,7 @@ namespace FI_NTF_WKR
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            TcpClient connection = new TcpClient("144.217.14.27", 1338);
         }
 
         private void notify(String title, String description, int timeout)
