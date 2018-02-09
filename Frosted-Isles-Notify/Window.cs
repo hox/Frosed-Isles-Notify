@@ -72,6 +72,9 @@ namespace FI_NTF_WKR
                     MessageBox.Show("Unable to connect", "Connection refused", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
+                contextMenu.Items.Find("toolStripConnect", true)[0].Enabled = true;
+                contextMenu.Items.Find("toolStripDisconnect", true)[0].Enabled = false;
+
                 Console.Error.WriteLine(ex.Message);
                 return;
             }
@@ -79,6 +82,10 @@ namespace FI_NTF_WKR
             using (NetworkStream stream = client.GetStream())
             {
                 Console.WriteLine("Connected!");
+
+                contextMenu.Items.Find("toolStripConnect", true)[0].Enabled = false;
+                contextMenu.Items.Find("toolStripDisconnect", true)[0].Enabled = true;
+
                 while (stream.CanRead)
                 {
                     if (stream.DataAvailable)
@@ -90,6 +97,31 @@ namespace FI_NTF_WKR
                     }
                 }
                 Console.WriteLine("Connection closed.");
+
+                contextMenu.Items.Find("toolStripConnect", true)[0].Enabled = true;
+                contextMenu.Items.Find("toolStripDisconnect", true)[0].Enabled = false;
+            }
+        }
+
+        private void contextMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            switch (e.ClickedItem.Text)
+            {
+                case "Exit":
+                    client.Close();
+                    Close();
+                    break;
+                case "Connect":
+                    if (!client.Connected) {
+                        new Thread(Client).Start();
+                    }
+                    break;
+                case "Disconnect":
+                    client.Client.Close();
+
+                    contextMenu.Items.Find("toolStripConnect", true)[0].Enabled = true;
+                    e.ClickedItem.Enabled = false;
+                    break;
             }
         }
     }
