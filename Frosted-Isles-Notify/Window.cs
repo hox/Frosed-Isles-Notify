@@ -30,7 +30,7 @@ namespace FI_NTF_WKR
             client.Close();
         }
 
-        private void notify(String title, String description, int timeout)
+        private void Notify(String title, String description, int timeout)
         {
             timeout *= 1000;
 
@@ -69,7 +69,7 @@ namespace FI_NTF_WKR
             client = new TcpClient();
             try
             {
-                client.Connect("144.217.13.27", 1338); //frostedisles.ddns.net
+                client.Connect("frostedisles.ddns.net", 1338); //158.69.60.8
             }
             catch(Exception ex)
             {
@@ -92,6 +92,7 @@ namespace FI_NTF_WKR
                         byte[] data = ReadData(stream);
                         Console.WriteLine("New data! Content: {0}", data.ToString());
                         stream.Flush();
+                        //TODO: Split the data to pass to Notify()
                     }
                 }
                 Console.WriteLine("Connection closed.");
