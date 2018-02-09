@@ -30,21 +30,15 @@ namespace FI_NTF_WKR
             client.Close();
         }
 
-        private void Notify(String title, String description, int timeout)
+        private void Notify(string title, string description, int timeout)
         {
             timeout *= 1000;
 
-            NotifyIcon notification = new NotifyIcon()
-            {
-                Visible = true,
-                Icon = SystemIcons.Information,
-                BalloonTipIcon = ToolTipIcon.Info,
-                BalloonTipTitle = title,
-                BalloonTipText = description,
-            };
+            notification.BalloonTipTitle = title;
+            notification.BalloonTipText = description;
+
             notification.ShowBalloonTip(timeout);
             Thread.Sleep(timeout);
-            notification.Dispose();
         }
 
         public static byte[] ReadData(Stream stream)

@@ -30,13 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Window));
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.notification = new System.Windows.Forms.NotifyIcon(this.components);
             this.SuspendLayout();
             // 
-            // notifyIcon1
+            // notification
             // 
-            this.notifyIcon1.Text = "notifyIcon1";
-            this.notifyIcon1.Visible = true;
+            this.notification.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.notification.Icon = ((System.Drawing.Icon)(resources.GetObject("notification.Icon")));
+            this.notification.Text = "Frosted Isles Notifier";
+            this.notification.Visible = true;
             // 
             // Window
             // 
@@ -44,9 +46,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(305, 0);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "Window";
+            this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Notify";
@@ -59,7 +62,7 @@
 
         #endregion
 
-        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.NotifyIcon notification;
     }
 }
 
