@@ -22,12 +22,13 @@ namespace FI_NTF_WKR
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            new Thread(Client).Start();
+            new Thread(StartClient).Start();
         }
 
         private void Window_FormClosing(object sender, FormClosingEventArgs e)
         {
             client.Close();
+            notification.Dispose();
         }
 
         private void Notify(string title, string description, int timeout)
@@ -58,7 +59,7 @@ namespace FI_NTF_WKR
             }
         }
 
-        void Client()
+        void StartClient()
         {
             client = new TcpClient();
             try
@@ -69,7 +70,7 @@ namespace FI_NTF_WKR
             {
                 if (ex is SocketException)
                 {
-                    MessageBox.Show("Unable to connect", "Connection refused", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    notification.ShowBalloonTip(5, "Unable to connect", "Connection refused", ToolTipIcon.Error);
                 }
 
                 contextMenu.Items.Find("toolStripConnect", true)[0].Enabled = true;
@@ -82,24 +83,32 @@ namespace FI_NTF_WKR
             using (NetworkStream stream = client.GetStream())
             {
                 Console.WriteLine("Connected!");
+                notification.ShowBalloonTip(5, "Connected", "Connection established with Frosted Isles", ToolTipIcon.Info);
 
-                contextMenu.Items.Find("toolStripConnect", true)[0].Enabled = false;
-                contextMenu.Items.Find("toolStripDisconnect", true)[0].Enabled = true;
+                //contextMenu.Items.Find("toolStripConnect", true)[0].Enabled = false;
+                //contextMenu.Items.Find("toolStripDisconnect", true)[0].Enabled = true;
 
                 while (stream.CanRead)
                 {
-                    if (stream.DataAvailable)
+                    try
                     {
-                        byte[] data = ReadData(stream);
-                        Console.WriteLine("New data! Content: {0}", data.ToString());
-                        stream.Flush();
-                        //TODO: Split the data to pass to Notify()
+                        stream.WriteByte(0); //Ping the server to keep connection alive
+
+                        if (stream.DataAvailable)
+                        {
+                            byte[] data = ReadData(stream);
+                            Console.WriteLine("New data! Content: {0}", data.ToString());
+                            stream.Flush();
+                            //TODO: Split the data to pass to Notify()
+                            Notify("New data recieved!", data.ToString(), 5);
+                        }
                     }
+                    catch { break; }
                 }
                 Console.WriteLine("Connection closed.");
 
-                contextMenu.Items.Find("toolStripConnect", true)[0].Enabled = true;
-                contextMenu.Items.Find("toolStripDisconnect", true)[0].Enabled = false;
+                //contextMenu.Items.Find("toolStripConnect", true)[0].Enabled = true;
+                //contextMenu.Items.Find("toolStripDisconnect", true)[0].Enabled = false;
             }
         }
 
@@ -113,14 +122,25 @@ namespace FI_NTF_WKR
                     break;
                 case "Connect":
                     if (!client.Connected) {
-                        new Thread(Client).Start();
+                        new Thread(StartClient).Start();
                     }
                     break;
                 case "Disconnect":
-                    client.Client.Close();
+                    if (client.Connected)
+                    {
+                        const string word = "DISCONNECT";
+                        byte[] buffer = new byte[10];
+                        for (int i = 0; i < 10; i++)
+                        {
+                            buffer[i] = Convert.ToByte(word[i]);
+                        }
 
+                        client.GetStream().Write(buffer, 0, 10);
+                        client.Close();
+                    }
                     contextMenu.Items.Find("toolStripConnect", true)[0].Enabled = true;
                     e.ClickedItem.Enabled = false;
+
                     break;
             }
         }
